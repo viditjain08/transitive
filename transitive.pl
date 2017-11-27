@@ -1,19 +1,27 @@
+a([X,Y],[Y,Z],[X,Z]).
+b(X,Y,Z):-
+	a(X,Y,Z);
+	[A,A]=X,
+	write(A).
 checktransitive(S, R):-
 	graph(S,R,G),
 	length(S,N),
 	matrixtrans(G, G, G1, N,N),
 	G==G1.
+
 transitiveclosure(S, R, G1):-
 	graph(S,R,G),
 	length(S,N),
 	matrixtrans(G, G, G2, N,N),
-	transmatrixrow(S, G2,[], G1, N),
-def(S,0,G1,G2,N1,N2).
+	transmatrixrow(S, G2,[], G1, N).
+def(S,0,G1,G1,N1,N2).
 def(S,1,G1,G2,N1,N2):-
 	length(S,X),
 	N3 is X-N2,
 	N4 is X-N1,
-	N5=[N3,N4],
+	getvalue(S, N6, N3),
+	getvalue(S, N7, N4),
+	N5=[N6,N7],
 	append(G1,[N5],G2).
 transmatrixcol(S,[],G,G,0,N2).
 transmatrixcol(S,[H|T],G1,G2,N, N2):-
@@ -25,7 +33,7 @@ transmatrixrow(S,[H|T],G1,G3, N):-
 	N1 is N-1,
 	length(S,X),
 	transmatrixcol(S,H,G1,G2,X,N),
-	transmatrixrow(S,T,G2,G3,N1),!.
+transmatrixrow(S,T,G2,G3,N1),!.
 
 
 abc([H|T],0,H).
