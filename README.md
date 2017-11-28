@@ -1,10 +1,10 @@
-                                      #Transitive
+# TRANSITIVE
 
 
 Q1. Write a Prolog program for testing whether a given (binary) relation R (on a finite set S) is
 transitive.
 
- INPUT FORMAT 
+ INPUT FORMAT:
 		(a) checkTransitive(S,R).
 		
 		where S is the finite set and R is the binary relation on set S
@@ -16,7 +16,7 @@ transitive.
 Q2. Add rules (or modify the program in Q1) to compute the transitive closure of a given relation.
 
 
- INPUT FORMAT
+ INPUT FORMAT:
 		(b) closure(S,R).
 
 		where S is the finite set and R is the binary relation on set S
@@ -24,10 +24,12 @@ Q2. Add rules (or modify the program in Q1) to compute the transitive closure of
 
 		Returns false if any pair has elements which are not in S
 
-TRANSITIVE
+TRANSITIVE:
 		(c) transitive(X,Y,Z).
+		
 		Returns Z such that X,Y,Z forms a transitive relation
 
-MEMBERFUNCTION
+MEMBERFUNCTION:
 		(d) memberfunc(H, R,G,X).
+		
 		Returns G=1 if H a member of R and the X=list of elements after H in R, else G=0 and X=[]
